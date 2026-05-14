@@ -1,0 +1,72 @@
+<div class="card" style="padding: 2rem;">
+  
+  <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+    <input 
+      type="text" 
+      pInputText 
+      placeholder="Buscar por nome" 
+      [(ngModel)]="filtroTexto" 
+      (input)="aplicarFiltros()"
+      style="width: 250px;">
+
+    <select [(ngModel)]="filtroCategoria" (change)="aplicarFiltros()" class="p-inputtext">
+        <option value="">Todas as Categorias</option>
+        <option value="DOCE">Doce</option>
+        <option value="SALGADO">Salgado</option>
+        <option value="BEBIDA">Bebida</option>
+        <option value="SOBREMESA">Sobremesa</option>
+    </select>
+  </div>
+
+  <p-table [value]="receitasFiltradas" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template #header>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Tempo de Preparo</th>
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-receita>
+      <tr>
+        <td>
+          <strong>{{ receita.nome }}</strong><br>
+        </td>
+        
+        <td>{{ receita.categoria }}</td>
+        
+        <td>{{ receita.tempoPreparo }}</td>
+
+        <td>
+          <div style="display: flex; gap: 0.5rem;">
+            <p-button
+              icon="pi pi-pencil"
+              label="Detalhes"
+              severity="info"
+              size="small"
+              (onClick)="detalhesReceita(receita.id)">
+            </p-button>
+
+            <p-button
+              icon="pi pi-trash"
+              label="Excluir"
+              severity="danger"
+              size="small"
+              (onClick)="excluirReceita(receita.id)">
+            </p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    
+    <ng-template #empty>
+        <tr>
+            <td colspan="7" style="text-align: center; padding: 2rem;">
+                Nenhuma receita cadastrada.
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog></p-confirmDialog>

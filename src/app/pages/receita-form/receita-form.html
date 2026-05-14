@@ -1,0 +1,93 @@
+<div class="card" style="padding: 2rem; max-width: 600px; margin: 0 auto;">
+  
+  <h2>{{ isEdicao ? 'Editar Receita' : 'Nova Receita' }}</h2>
+
+  <form #formRecipe="ngForm" (ngSubmit)="salvar()">
+    
+    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+      
+      <div>
+        <label>Nome *</label><br>
+        <input 
+          type="text" 
+          pInputText 
+          name="nome" 
+          [(ngModel)]="receita.nome" 
+          required 
+          minlength="3" 
+          #nome="ngModel"
+          style="width: 100%;">
+        
+        <small *ngIf="nome.invalid && nome.touched" style="color: #ff5252;">
+          O título é obrigatório e deve ter no mínimo 3 caracteres.
+        </small>
+      </div>
+
+      <div>
+        <label>Categoria *</label><br>
+        <select 
+          name="categoria" 
+          [(ngModel)]="receita.categoria" 
+          required 
+          class="p-inputtext" 
+          style="width: 100%;">
+          <option value="" disabled selected>Selecione uma categoria</option>
+          <option *ngFor="let cat of categoriasAtuais" [value]="cat">{{ cat }}</option>
+        </select>
+      </div>
+
+      <div>
+        <label>Tempo preparo (minutos) *</label><br>
+        <input 
+          type="number" 
+          pInputText 
+          name="tempoPreparo" 
+          [(ngModel)]="receita.tempoPreparo"
+          style="width: 100%;">
+      </div>
+
+      <div>
+        <label>Porçoes *</label><br>
+        <input 
+          type="number" 
+          pInputText 
+          name="porcoes" 
+          [(ngModel)]="receita.porcoes"
+          style="width: 100%;">
+      </div>
+
+      <div>
+        <label>Modo de preparo *</label><br>
+        <input 
+          type="text" 
+          pInputText 
+          name="modoPreparo" 
+          [(ngModel)]="receita.modoPreparo" 
+          required 
+          minlength="3" 
+          #modoPreparo="ngModel"
+          style="width: 100%;">
+        
+        <small *ngIf="modoPreparo.invalid && modoPreparo.touched" style="color: #ff5252;">
+          O modo de preparo é obrigatóri.
+        </small>
+      </div>
+
+      <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+        <p-button 
+          label="Cancelar" 
+          severity="secondary" 
+          (onClick)="cancelar()">
+        </p-button>
+
+        <p-button 
+          type="submit" 
+          label="Salvar" 
+          severity="success" 
+          [disabled]="formRecipe.invalid">
+        </p-button>
+      </div>
+
+    </div>
+  </form>
+</div>

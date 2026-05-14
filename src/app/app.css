@@ -1,0 +1,12 @@
+.menu-navegacao {
+    display: flex;          /* Ativa o modo "Caixa Mágica" (Flexbox) */
+    justify-content: center; /* Alinha os botões horizontalmente no CENTRO */
+    gap: 1rem;              /* Cria um espaço (distância) de 2rem entre cada botão */
+    margin-top: 50px;       /* Empurra o menu para baixo, longe da barra do navegador */
+    margin-bottom: 30px;    /* Dá um espaço antes de começar o conteúdo da página */
+}
+
+/* Garante que os botões tenham uma largura mínima parecida */
+.menu-navegacao p-button {
+    min-width: 150px;
+}

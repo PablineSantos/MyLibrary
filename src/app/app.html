@@ -1,0 +1,11 @@
+<p-toast></p-toast>
+
+<div class="menu-navegacao">
+    <p-button label="Listar" (click)="navegarPara('/receitas')" />
+    <p-button label="Cadastrar" (click)="navegarPara('/receita/cadastrar')" />
+
+</div>
+
+<div class="conteudo-principal">
+    <router-outlet></router-outlet>
+</div>
