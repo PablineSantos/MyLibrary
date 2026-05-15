@@ -12,7 +12,7 @@ import { Recipe } from '../../models/recipe.model';
 import { RecipeService } from '../../services/recipe.service';
 
 @Component({
-  selector: 'app-tarefa-list',
+  selector: 'app-receita-list',
   imports: [
     CommonModule,
     FormsModule, // Módulo de formulários

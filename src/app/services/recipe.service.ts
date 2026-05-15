@@ -78,7 +78,7 @@ export class RecipeService {
   }
 
   buscarReceitaPorId(id: number): Recipe | undefined {
-    // Busca com lambda, t desde que id de t for igual a id
+    // Busca com lambda, r desde que id de r for igual a id
     return this.receitas.find(r => r.id === id);
   }
 
