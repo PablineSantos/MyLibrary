@@ -58,11 +58,6 @@ export class ReceitaList implements OnInit{
     });
   }
 
-  /*marcarConcluida(id: number) {
-    this.receitaService.alterarStatusConcluido(id);
-    this.carregarTarefas(); // Atualiza a tela
-  }*/
-
 excluirReceita(id: number) {
     // Chamada do PrimeNG
     this.confirmationService.confirm({
