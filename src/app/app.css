@@ -3,7 +3,7 @@
     justify-content: flex-start; /* Traz os botões para a ESQUERDA */
     
     /* Aplica o mesmo espaço que a tela de listagem tem nas laterais */
-    padding: 2rem 2rem 0 2rem;   
+    padding: 2rem 2rem 1rem 2rem;   
     
 }
 
@@ -11,3 +11,4 @@
 .menu-navegacao p-button {
     min-width: 90px;
 }
+

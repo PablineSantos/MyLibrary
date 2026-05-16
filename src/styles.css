@@ -1,23 +1,20 @@
-
-
-/* 2. Importa a fonte Poppins do Google Fonts em várias espessuras */
+/* Importa a fonte Poppins do Google Fonts e icones do primeng*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import "primeicons/primeicons.css";
 
-/* 3. Aplica a fonte no corpo do site inteiro */
+/* Aplica a fonte no corpo do site inteiro */
 html, body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Ajuste para o fundo escuro que você está usando */
-    color: #ffffff;
+    background-color: #f8fafc; /* Um branco/gelo bem suave para o fundo da página inteira */
+
 }
 
-/* 4. Força os componentes do PrimeNG (tabelas, botões, modais) a usarem a Poppins */
-* {
-    font-family: 'Poppins', sans-serif !important;
-}
-
-.p-component, 
-.p-component * {
-    font-family: 'Poppins', sans-serif !important;
+/* Deixa o fundo branco e coloca uma sombra leve */
+.card {
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: #ffffff; /* Fundo branco do card */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Sombra elegante */
 }

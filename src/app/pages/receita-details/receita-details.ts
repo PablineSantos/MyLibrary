@@ -65,7 +65,7 @@ export class ReceitaDetails implements OnInit {
   excluir() {
     if (this.receita) {
       this.confirmationService.confirm({
-        message: `Tem certeza que deseja excluir a receita "${this.receita.nome}" permanentemente?`,
+        message: `Deseja excluir a receita "${this.receita.nome}" permanentemente?`,
         header: 'Confirmação de Exclusão',
         icon: 'pi pi-exclamation-triangle',
         acceptLabel: 'Sim, excluir',

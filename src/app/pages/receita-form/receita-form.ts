@@ -69,7 +69,7 @@ export class ReceitaForm {
         }, 1000);
       },
       error: (erro) => {
-        // O Backend reclamou de alguma regra de negócio
+        // O Backend barra em alguma regra de negócio
         console.error('Erro ao salvar:', erro);
         this.messageService.add({ 
           severity: 'error', 
