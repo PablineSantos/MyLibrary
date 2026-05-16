@@ -76,14 +76,27 @@ export class ReceitaList implements OnInit, OnDestroy {
   }
 
   // Busca inicial sem filtros
-carregarReceitas() {
+  carregarReceitas() {
     this.receitaService.listarReceitas().subscribe({
       next: (dados) => {
-         this.receitas = dados;
-         // Renderiza a lista na hora
-         this.cdr.detectChanges(); 
+        this.receitas = dados;
+
+        // Se o banco retornar uma lista VAZIA:
+        if (this.receitas.length === 0) {
+          this.messageService.add({
+            severity: 'info',
+            summary: 'Banco de Receitas Vazio',
+            detail: 'Nenhuma receita cadastrada.',
+            life: 4000,
+            closable: true
+          });
+        }
+
+        this.cdr.detectChanges(); // Força o Angular a atualizar a tela
       },
-      error: (err) => this.exibirMensagem('error', 'Falha ao carregar a lista.')
+      error: (err) => {
+        this.exibirMensagem('error', 'Falha ao carregar a lista de receitas.');
+      }
     });
   }
 

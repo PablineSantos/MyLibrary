@@ -50,10 +50,14 @@
       </tr>
     </ng-template>
     
-    <ng-template #empty>
+<ng-template #empty>
         <tr>
-            <td colspan="4" style="text-align: center; padding: 2rem;">
-                Nenhuma receita cadastrada.
+            <td colspan="4" style="text-align: center; padding: 3rem; color: #64748b;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                    <i class="pi pi-folder-open" style="font-size: 2.5rem; color: #94a3b8;"></i>
+                    <span style="font-size: 1.1rem; font-weight: 500;">Nenhuma receita cadastrada.</span>
+                    <small style="color: #94a3b8;">Clique em "Cadastrar" no topo para adicionar a sua primeira receita!</small>
+                </div>
             </td>
         </tr>
     </ng-template>
