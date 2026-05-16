@@ -4,7 +4,6 @@
     <ng-template pTemplate="title">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <h1 style="margin: 0; color: #3b82f6; font-size: 2.5rem;">{{ receita.nome }}</h1>
-        
         <span style="background-color: #3b82f6; color: white; padding: 0.3rem 0.8rem; border-radius: 8px; font-size: 1rem;">
           {{ receita.categoria }}
         </span>
@@ -35,7 +34,7 @@
 
       <h3 style="color: #3b82f6; border-bottom: 1px solid #333; padding-bottom: 0.5rem;">Modo de Preparo</h3>
       <p style="white-space: pre-wrap; line-height: 1.8; font-size: 1.1rem;">{{ receita.modoPreparo }}</p>
-      
+       
     </div>
 
     <ng-template pTemplate="footer">
@@ -58,7 +57,7 @@
   </p-card>
 </div>
 
-<div *ngIf="!receita" style="text-align: center; padding: 5rem;">
+<div *ngIf="!receita && erroAoCarregar" style="text-align: center; padding: 5rem;">
   <i class="pi pi-exclamation-circle" style="font-size: 3rem; color: #ff5252; margin-bottom: 1rem;"></i>
   <h2>Receita não encontrada!</h2>
   <p-button label="Voltar" icon="pi pi-arrow-left" (onClick)="voltar()"></p-button>

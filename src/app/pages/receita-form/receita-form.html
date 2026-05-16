@@ -44,8 +44,22 @@
       </div>
 
       <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-        <p-button label="Cancelar" severity="secondary" (onClick)="cancelar()"></p-button>
-        <p-button type="submit" label="Salvar" severity="success" [disabled]="formRecipe.invalid"></p-button>
+        
+        <p-button 
+          label="Cancelar" 
+          severity="secondary" 
+          (onClick)="cancelar()"
+          [disabled]="salvando">
+        </p-button>
+
+        <p-button 
+          type="submit" 
+          label="Salvar" 
+          severity="success" 
+          [disabled]="formRecipe.invalid || salvando"
+          [loading]="salvando">
+        </p-button>
+
       </div>
 
     </div>

@@ -1,113 +1,43 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class RecipeService {
+  
+  // Injetamos o HttpClient
+  private http = inject(HttpClient);
+  
+  // A URL base que a Pabline configurou no Controller
+  private apiUrl = 'http://localhost:8080/api/receitas';
 
-  private receitas: Recipe[] = [];
-  private proximoId = 6;
-
-  constructor() {
-    // Adiciona receitas teste
-    this.receitas = 
-    [
-      /*{
-      id: 1,
-      titulo: "Estudar Angular",
-      descricao: "Revisar material de Data Binding",
-      categoria: "Estudos",
-      prioridade: "Alta",
-      concluida: false,
-      dataCriacao: new Date("2024-04-20")
-      },
-      {
-      id: 2,
-      titulo: "Fazer compras",
-      descricao: "Arroz, feijão, café",
-      categoria: "Pessoal",
-      prioridade: "Média",
-      concluida: true,
-      dataCriacao: new Date("2024-04-21"),
-      dataConclusao: new Date("2024-04-22")
-      },
-      {
-      id: 3,
-      titulo: "Reunião com time",
-      descricao: "Daily às 10h",
-      categoria: "Trabalho",
-      prioridade: "Alta",
-      concluida: false,
-      dataCriacao: new Date("2024-04-23")
-      },
-      {
-      id: 4,
-      titulo: "Ler documentação TypeScript",
-      descricao: "Capítulos 5 e 6",
-      categoria: "Estudos",
-      prioridade: "Baixa",
-      concluida: false,
-      dataCriacao: new Date("2024-04-24")
-      },
-      {
-      id: 5,
-      titulo: "Ligar para dentista",
-      descricao: "Agendar consulta",
-      categoria: "Pessoal",
-      prioridade: "Média",
-      concluida: false,
-      dataCriacao: new Date("2024-04-25")
-      }*/
-    ];
-  }
-
-  cadastarReceita(receita: Recipe): Recipe {
-    const novaReceita: Recipe = {
-      ...receita,
-      id: this.proximoId++
-    };
-
-    this.receitas.push(novaReceita);
-
-    return novaReceita;
-  }
-
-  listarReceitas(): Recipe[] {
-    return this.receitas;
-  }
-
-  buscarReceitaPorId(id: number): Recipe | undefined {
-    // Busca com lambda, r desde que id de r for igual a id
-    return this.receitas.find(r => r.id === id);
-  }
-
-  atualizarReceita(id: number, receitaAtualizada: Recipe): Recipe | undefined {
-    // Busca o index ou id da tarefa
-    const index = this.receitas.findIndex(r => r.id === id);
-    if (index !== -1) {
-      this.receitas[index] = { ...receitaAtualizada, id };
-      return this.receitas[index];
+  // Endpoint 1 e 2: Listar todas OU buscar por nome
+  listarReceitas(nomeBusca?: string): Observable<Recipe[]> {
+    let parametros = new HttpParams();
+    
+    // Se o usuário digitou algo na busca, coloca ?nome=valor na URL
+    if (nomeBusca) {
+      parametros = parametros.set('nome', nomeBusca);
     }
-    return undefined;
+    
+    return this.http.get<Recipe[]>(this.apiUrl, { params: parametros });
   }
 
-  excluirReceita(id: number): boolean {
-    const index = this.receitas.findIndex(r => r.id === id);
-    if (index !== -1) {
-      this.receitas.splice(index, 1);
-      return true;
-    }
-    return false;
+  // Endpoint 2: Buscar por ID para a tela de Detalhes
+  buscarReceitaPorId(id: number): Observable<Recipe> {
+    return this.http.get<Recipe>(`${this.apiUrl}/${id}`);
   }
 
-  /*alterarStatusConcluido(id: number): void {
-  const receita = this.buscarReceitaPorId(id);
-  if (receita) {
-    receita.concluida = !receita.concluida;
-    // Regra de negócio do PDF 
-    receita.dataConclusao = receita.concluida ? new Date() : undefined;
+  // Endpoint 3: Criar uma nova receita
+  cadastrarReceita(receita: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(this.apiUrl, receita);
   }
-}*/  
 
+  // Endpoint 4: Excluir receita
+  excluirReceita(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

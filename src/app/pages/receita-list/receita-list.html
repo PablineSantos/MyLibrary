@@ -4,46 +4,34 @@
     <input 
       type="text" 
       pInputText 
-      placeholder="Buscar por nome" 
-      [(ngModel)]="filtroTexto" 
-      (input)="aplicarFiltros()"
-      style="width: 250px;">
-
-    <select [(ngModel)]="filtroCategoria" (change)="aplicarFiltros()" class="p-inputtext">
-        <option value="">Todas as Categorias</option>
-        <option value="DOCE">Doce</option>
-        <option value="SALGADO">Salgado</option>
-        <option value="BEBIDA">Bebida</option>
-        <option value="SOBREMESA">Sobremesa</option>
-    </select>
+      placeholder="Buscar receita por nome..." 
+      [(ngModel)]="filtroNome" 
+      (ngModelChange)="aplicarFiltroNome()"
+      style="width: 350px;">
   </div>
 
-  <p-table [value]="receitasFiltradas" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="receitas" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template #header>
       <tr>
         <th>Nome</th>
         <th>Categoria</th>
         <th>Tempo de Preparo</th>
-        <th></th>
-
-
+        <th>Ações</th>
       </tr>
     </ng-template>
 
     <ng-template #body let-receita>
       <tr>
         <td>
-          <strong>{{ receita.nome }}</strong><br>
+          <strong>{{ receita.nome }}</strong>
         </td>
         
         <td>{{ receita.categoria }}</td>
         
-        <td>{{ receita.tempoPreparo }}</td>
-
-        <td>
+        <td>{{ receita.tempoPreparo }} min</td> <td>
           <div style="display: flex; gap: 0.5rem;">
             <p-button
-              icon="pi pi-pencil"
+              icon="pi pi-eye"
               label="Detalhes"
               severity="info"
               size="small"
@@ -64,7 +52,7 @@
     
     <ng-template #empty>
         <tr>
-            <td colspan="7" style="text-align: center; padding: 2rem;">
+            <td colspan="4" style="text-align: center; padding: 2rem;">
                 Nenhuma receita cadastrada.
             </td>
         </tr>

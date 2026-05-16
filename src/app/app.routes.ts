@@ -7,6 +7,6 @@ export const routes: Routes = [
   {path: '', redirectTo: '/receitas', pathMatch: 'full'},
   {path: 'receitas', component: ReceitaList},
   {path: 'receita/cadastrar', component: ReceitaForm},
-  {path: 'receita/detalhes/:id', component: ReceitaDetails},
+  {path: 'receita/detalhes/:id', component: ReceitaDetails}
   
 ];
