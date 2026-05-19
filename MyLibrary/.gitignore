@@ -1,0 +1,100 @@
+# ==========================================
+# ANGULAR & NODE (Frontend)
+# ==========================================
+# Pastas de build, cache e artefatos
+**/dist/
+**/out-tsc/
+**/tmp/
+**/coverage/
+**/.angular/
+**/.angular-cli.json
+**/.ng/
+**/.sass-cache/
+
+# Dependências (Seu projeto agradece por manter o lock fora daqui)
+**/node_modules/
+
+# Logs e caches de build
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+testem.log
+**/bazel-out/
+/libpeerconnection.log
+
+# Variáveis de ambiente
+.env
+
+# Miscelânea Frontend
+**/typings/
+**/__screenshots__/
+
+# ==========================================
+# JAVA (Backend - Maven/Gradle/NetBeans)
+# ==========================================
+HELP.md
+**/target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Se usar Gradle ou NetBeans
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+**/.nb-gradle/
+**/nbproject/private/
+**/nbbuild/
+**/nbdist/
+
+# Certificados e Chaves de Segurança
+*.pem
+*.key
+*.pub
+*.keystore
+*.jks
+
+# Application Logs (Java/Spring)
+*.log
+**/logs/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# ==========================================
+# IDEs & EDITORES (Organizado)
+# ==========================================
+# Visual Studio Code (Mantendo suas exceções úteis)
+**/.vscode/*
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
+!**/.vscode/mcp.json
+**/.history/*
+
+# IntelliJ IDEA
+**/.idea/
+*.iws
+*.iml
+*.ipr
+
+# Eclipse / STS / NetBeans antigos
+**/.apt_generated/
+.classpath
+.factorypath
+.project
+**/.settings/
+.springBeans
+.sts4-cache/
+
+# Outros editores
+*.launch
+*.sublime-workspace
+**/.c9/
+
+# ==========================================
+# SISTEMA OPERACIONAL
+# ==========================================
+.DS_Store
+Thumbs.db
