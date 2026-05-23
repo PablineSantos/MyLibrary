@@ -14,7 +14,6 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
             "(:termo is null  or lower(l.titulo)like lower (concat('%',:termo,'%'))or lower(l.autor)like lower(concat('%',:termo, '%' )))and " +
             "(:categoriaId is null or l.categoria.id = :categoriaId) and " +
             "(:status is null or l.status = :status)")
-    List<Livro> buscarComfiltro(@Param("termo") String termo, @Param("categoriaId") Long categoriaId, @Param("status") Status status);
-
+    List<Livro> buscarComfiltro(@Param("termo") String termo, @Param("categoriaid") Long categoriaId, @Param("status") Status status);
     boolean existsByCategoria_Id(Long categoria);
 }
