@@ -15,29 +15,26 @@ import java.util.List;
 @RequestMapping("MyLibrary/Categorias")
 public class CategoriaController {
 
-    public final CategoriaService categoriaService;
-    private final CategoriaRepository categoriaRepository;
+    private final CategoriaService categoriaService;
 
-    public CategoriaController(CategoriaService categoriaService, CategoriaRepository categoriaRepository) {
+    public CategoriaController(CategoriaService categoriaService) {
         this.categoriaService = categoriaService;
-        this.categoriaRepository = categoriaRepository;
     }
 
     @PostMapping
-    public ResponseEntity<CategoriaDTO> criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
-        CategoriaDTO categoria =categoriaService.criarCategoria(categoriaDTO);
-        return ResponseEntity.status(HttpStatus.CREATED).body(categoria);
+    @ResponseStatus(HttpStatus.CREATED)
+    public CategoriaDTO criarCategoria(@Valid @RequestBody CategoriaDTO categoriaDTO) {
+        return categoriaService.criarCategoria(categoriaDTO);
     }
 
     @GetMapping
-    public ResponseEntity< List<CategoriaContagemResponseDTO>> listarCategorias() {
-        List<CategoriaContagemResponseDTO> categorias = categoriaService.listarCategorias();
-        return ResponseEntity.status(HttpStatus.OK).body(categorias);
+    public List<CategoriaContagemResponseDTO> listarCategoria() {
+        return categoriaService.listarCategorias();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletarCategoria(@PathVariable long id) {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarCategoria(@PathVariable long id) {
         categoriaService.deletarCategoria(id);
-        return ResponseEntity.noContent().build();
     }
 }
