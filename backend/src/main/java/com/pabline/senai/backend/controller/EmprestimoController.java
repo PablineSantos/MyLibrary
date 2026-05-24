@@ -2,12 +2,13 @@ package com.pabline.senai.backend.controller;
 
 import com.pabline.senai.backend.dto.EmprestimoRequestDTO;
 import com.pabline.senai.backend.dto.EmprestimoResponseDTO;
-import com.pabline.senai.backend.repository.EmprestimoRepository;
 import com.pabline.senai.backend.services.EmprestimoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("MyLibrary/Emprestimos")
