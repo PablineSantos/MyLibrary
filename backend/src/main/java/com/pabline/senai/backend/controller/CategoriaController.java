@@ -1,12 +1,10 @@
 package com.pabline.senai.backend.controller;
 
 import com.pabline.senai.backend.dto.CategoriaContagemResponseDTO;
-import com.pabline.senai.backend.repository.CategoriaRepository;
 import com.pabline.senai.backend.services.CategoriaService;
 import com.pabline.senai.backend.dto.CategoriaDTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
