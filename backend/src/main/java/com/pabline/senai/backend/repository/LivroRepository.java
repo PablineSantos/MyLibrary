@@ -18,6 +18,6 @@ public interface LivroRepository extends JpaRepository<Livro, Long> {
     List<Livro> buscarComfiltro(@Param("termo") String termo, @Param("categoriaId") Long categoriaId, @Param("status") Status status);
     boolean existsByCategoria_Id(Long categoria);
 
-
+    long countByStatus(Status status);
 
 }
