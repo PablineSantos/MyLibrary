@@ -1,4 +1,4 @@
-package com.pabline.senai.backend;
+package com.pabline.senai.backend.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

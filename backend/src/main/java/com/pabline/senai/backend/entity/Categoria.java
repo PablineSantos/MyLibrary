@@ -1,6 +1,9 @@
-package com.pabline.senai.backend;
+package com.pabline.senai.backend.entity;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Categoria {
@@ -14,6 +17,10 @@ public class Categoria {
 
     @Column
     private String descricao;
+
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+    private List<Livro> livros = new ArrayList<>();
+
 
     public Categoria() {
     }
@@ -36,5 +43,13 @@ public class Categoria {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<Livro> getLivros() {
+        return livros;
+    }
+
+    public void setLivros(List<Livro> livros) {
+        this.livros = livros;
     }
 }
