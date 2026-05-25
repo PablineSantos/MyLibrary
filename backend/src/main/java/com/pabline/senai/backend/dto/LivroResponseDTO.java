@@ -1,5 +1,6 @@
 package com.pabline.senai.backend.dto;
 
+import com.pabline.senai.backend.entity.Livro;
 import com.pabline.senai.backend.enums.Status;
 
 public class LivroResponseDTO {
@@ -14,14 +15,14 @@ public class LivroResponseDTO {
 
     public LivroResponseDTO() {}
 
-    public LivroResponseDTO(Long id, String titulo, String autor, String isbn, Integer ano, Status status, CategoriaDTO categoria) {
-        this.id = id;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.isbn = isbn;
-        this.ano = ano;
-        this.status = status;
-        this.categoria = categoria;
+    public LivroResponseDTO(Livro livro) {
+        this.id = livro.getId();
+        this.titulo = livro.getTitulo();
+        this.autor = livro.getAutor();
+        this.isbn = livro.getIsbn();
+        this.ano = livro.getAno();
+        this.status = livro.getStatus();
+        this.categoria = new CategoriaDTO(livro.getCategoria());
     }
 
     public Long getId() {

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExportHistory">
+    <option name="exports">
+      <list>
+        <ExportEntry>
+          <option name="fileCount" value="20" />
+          <option name="filePaths">
+            <list>
+              <option value="backend/src/main/java/com/pabline/senai/backend/BackendApplication.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/EmprestimoController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/LivroController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaContagemResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Categoria.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Emprestimo.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Livro.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/enums/Status.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/CategoriaRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/EmprestimoRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/LivroRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/CategoriaService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/EmprestimoService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/LivroService.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="35281" />
+          <option name="summary" value="20 files, 34,5 KB, ~7.880 tokens" />
+          <option name="timestamp" value="1779595794679" />
+          <option name="tokens" value="7880" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="20" />
+          <option name="filePaths">
+            <list>
+              <option value="backend/src/main/java/com/pabline/senai/backend/BackendApplication.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/EmprestimoController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/LivroController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaContagemResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Categoria.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Emprestimo.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Livro.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/enums/Status.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/CategoriaRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/EmprestimoRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/LivroRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/CategoriaService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/EmprestimoService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/LivroService.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="34505" />
+          <option name="summary" value="20 files, 33,7 KB, ~7.699 tokens" />
+          <option name="timestamp" value="1779593607963" />
+          <option name="tokens" value="7699" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="20" />
+          <option name="filePaths">
+            <list>
+              <option value="backend/src/main/java/com/pabline/senai/backend/BackendApplication.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/EmprestimoController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/LivroController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaContagemResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Categoria.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Emprestimo.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Livro.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/enums/Status.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/CategoriaRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/EmprestimoRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/LivroRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/CategoriaService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/EmprestimoService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/LivroService.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="34485" />
+          <option name="summary" value="20 files, 33,7 KB, ~7.691 tokens" />
+          <option name="timestamp" value="1779593138913" />
+          <option name="tokens" value="7691" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="13" />
+          <option name="filePaths">
+            <list>
+              <option value="backend/src/main/java/com/pabline/senai/backend/BackendApplication.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaContagemResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Categoria.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Livro.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/enums/Status.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/CategoriaRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/LivroRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/CategoriaService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/LivroService.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="17523" />
+          <option name="summary" value="13 files, 17,1 KB, ~3.756 tokens" />
+          <option name="timestamp" value="1779542769374" />
+          <option name="tokens" value="3756" />
+        </ExportEntry>
+      </list>
+    </option>
+  </component>
+</project>

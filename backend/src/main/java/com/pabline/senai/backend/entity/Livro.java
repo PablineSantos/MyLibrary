@@ -3,7 +3,8 @@ package com.pabline.senai.backend.entity;
 import com.pabline.senai.backend.enums.Status;
 import jakarta.persistence.*;
 
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Livro {
@@ -29,8 +30,11 @@ public class Livro {
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name="categoria_id", nullable = false)
+    @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
+
+    @OneToMany(mappedBy = "livro", cascade = CascadeType.ALL)
+    private List<Emprestimo> emprestimos = new ArrayList<>();
 
     public Livro() {
     }
@@ -85,5 +89,13 @@ public class Livro {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<Emprestimo> getEmprestimos() {
+        return emprestimos;
+    }
+
+    public void setEmprestimos(List<Emprestimo> emprestimos) {
+        this.emprestimos = emprestimos;
     }
 }
