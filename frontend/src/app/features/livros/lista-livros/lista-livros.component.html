@@ -1,0 +1,185 @@
+<div class="card">
+  <p-tabs value="0">
+    <p-tablist>
+      <p-tab value="0">Acervo de Livros</p-tab>
+      <p-tab value="1">Empréstimos Atrasados</p-tab>
+    </p-tablist>
+
+    <p-tabpanels>
+      <p-tabpanel value="0">
+
+        <p-toolbar styleClass="mb-4">
+          <div class="p-toolbar-group-left flex flex-wrap gap-3 align-items-center">
+
+            <p-button label="Novo Livro" icon="pi pi-plus" severity="success" (onClick)="abrirModalCadastro()"></p-button>
+
+            <input pInputText type="text" placeholder="Buscar título ou autor..." [(ngModel)]="termoBusca" style="width: 250px;"/>
+            <p-select [options]="categorias" [(ngModel)]="categoriaSelecionada" optionLabel="nome" optionValue="id" placeholder="Qualquer Categoria" [showClear]="true"></p-select>
+            <p-select [options]="statusOptions" [(ngModel)]="statusSelecionado" optionLabel="label" optionValue="value" placeholder="Qualquer Status" [showClear]="true"></p-select>
+            <p-button label="Buscar" icon="pi pi-search" (onClick)="filtrarLivros()"></p-button>
+          </div>
+        </p-toolbar>
+
+        <p-table [value]="livros" responsiveLayout="scroll" [paginator]="true" [rows]="10">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Título</th><th>Autor</th><th>Status</th><th>Ações</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-livro>
+            <tr [ngClass]="{'linha-emprestada': livro.status === 'EMPRESTADO'}">
+              <td>{{ livro.titulo }}</td>
+              <td>{{ livro.autor }}</td>
+              <td>
+                <p-tag [value]="livro.status" [severity]="livro.status === 'DISPONIVEL' ? 'success' : 'warn'"></p-tag>
+              </td>
+              <td style="display: flex; gap: 0.5rem;">
+                <p-button icon="pi pi-info-circle" severity="info" size="small" (onClick)="abrirDetalhes(livro)"></p-button>
+                <p-button *ngIf="livro.status === 'DISPONIVEL'" icon="pi pi-book" label="Emprestar" severity="success" size="small" (onClick)="abrirModalEmprestimo(livro)"></p-button>
+                <p-button *ngIf="livro.status === 'EMPRESTADO'" icon="pi pi-refresh" label="Devolver" severity="warn" size="small" (onClick)="devolverLivro(livro.id)"></p-button>
+                <p-button icon="pi pi-trash" severity="danger" size="small" [disabled]="livro.status === 'EMPRESTADO'" (onClick)="deletarLivro(livro.id)"></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </p-tabpanel>
+
+      <p-tabpanel value="1">
+        <p-table [value]="atrasados" *ngIf="atrasados.length > 0; else semAtrasos">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Livro</th><th>Pessoa</th><th>Data Prevista</th><th>Atraso</th><th>Ações</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-atr>
+            <tr>
+              <td>{{ atr.tituloLivro }}</td>
+              <td>{{ atr.nomePessoa }}</td>
+              <td>{{ atr.dataPrevistaDevolucao | date:'dd/MM/yyyy' }}</td>
+              <td>
+                <p-tag severity="danger" [value]="atr.diasDeAtraso + ' dias'"></p-tag>
+              </td>
+              <td>
+                <p-button label="Devolver" severity="warn" icon="pi pi-check" (onClick)="devolverLivro(atr.id)"></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+        <ng-template #semAtrasos>
+          <div style="text-align: center; padding: 2rem; color: #6b7280;">
+            <i class="pi pi-check-circle" style="font-size: 2rem; display: block; margin-bottom: 1rem;"></i>
+            <p>Nenhum empréstimo atrasado no momento. Parabéns pela gestão!</p>
+          </div>
+        </ng-template>
+      </p-tabpanel>
+
+    </p-tabpanels>
+  </p-tabs>
+</div>
+
+<p-drawer [(visible)]="sidebarVisivel" position="right" [style]="{width: '450px'}" [modal]="false">
+  <ng-template pTemplate="header"><h3>Detalhes do Livro</h3></ng-template>  <div *ngIf="livroSelecionado" style="margin-top: 1rem;">
+    <div class="card-detalhes-livro" style="padding: 1rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid var(--p-content-border-color);">
+      <p><strong>Título:</strong> {{ livroSelecionado.titulo }}</p>
+      <p><strong>Autor:</strong> {{ livroSelecionado.autor }}</p>
+      <p><strong>Status:</strong> <p-tag [value]="livroSelecionado.status" [severity]="livroSelecionado.status === 'DISPONIVEL' ? 'success' : 'warn'"></p-tag></p>
+    </div>
+    <h4 style="margin-bottom: 1rem;">Histórico de Empréstimos</h4>
+    <p-table [value]="historicoEmprestimos" [scrollable]="true" scrollHeight="300px" size="small">
+      <ng-template pTemplate="header"><tr><th>Pessoa</th><th>Devolução</th></tr></ng-template>
+      <ng-template pTemplate="body" let-hist>
+        <tr>
+          <td>{{ hist.nomePessoa }}</td>
+          <td>
+            <span *ngIf="hist.dataDevolucaoEfetiva; else pendente">{{ hist.dataDevolucaoEfetiva }}</span>
+            <ng-template #pendente><span style="color: #d97706; font-weight: bold;">Pendente</span></ng-template>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</p-drawer>
+
+<p-confirmDialog></p-confirmDialog>
+<p-toast></p-toast>
+
+<p-dialog
+  header="Realizar Empréstimo"
+  [(visible)]="exibirModalEmprestimo"
+  [modal]="true"
+  [style]="{width: '400px'}"
+  [draggable]="false"
+  [resizable]="false">
+
+  <div class="flex flex-column gap-3" *ngIf="livroSelecionado">
+    <p>Você está emprestando: <strong>{{ livroSelecionado.titulo }}</strong></p>
+
+    <div class="flex flex-column gap-2">
+      <label for="nome">Nome do Cliente</label>
+      <input pInputText id="nome" [(ngModel)]="formularioEmprestimo.nome" placeholder="Ex: João Silva" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="telefone">Telefone para Contato</label>
+      <p-inputMask
+        id="telefone"
+        mask="(99) 99999-9999"
+        [(ngModel)]="formularioEmprestimo.telefone"
+        placeholder="(00) 00000-0000">
+      </p-inputMask>
+    </div>
+  </div>
+  <div class="flex flex-column gap-2">
+    <label for="dataDevolucao">Data Prevista para Devolução</label>
+
+    <p-datepicker
+      id="dataDevolucao"
+      [(ngModel)]="formularioEmprestimo.dataPrevistaDevolucao"
+      [showIcon]="true"
+      dateFormat="dd/mm/yy"
+      [minDate]="hoje">
+    </p-datepicker>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" icon="pi pi-times" [text]="true" severity="secondary" (onClick)="exibirModalEmprestimo = false"></p-button>
+    <p-button label="Confirmar Empréstimo" icon="pi pi-check" severity="success" (onClick)="confirmarEmprestimo()"></p-button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog header="Cadastrar Novo Livro" [(visible)]="exibirModalCadastro" [modal]="true" [style]="{width: '450px'}" [draggable]="false" [resizable]="false">
+
+  <div class="flex flex-column gap-3">
+    <div class="flex flex-column gap-2">
+      <label for="titulo">Título</label>
+      <input pInputText id="titulo" [(ngModel)]="formularioLivro.titulo" placeholder="Ex: O Senhor dos Anéis" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="autor">Autor</label>
+      <input pInputText id="autor" [(ngModel)]="formularioLivro.autor" placeholder="Ex: J.R.R. Tolkien" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="isbn">ISBN</label>
+      <input pInputText id="isbn" [(ngModel)]="formularioLivro.isbn" placeholder="Ex: 978-3-16-148410-0" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="ano">Ano de Publicação</label>
+      <input pInputText id="ano" type="number" [(ngModel)]="formularioLivro.ano" placeholder="Ex: 1954" />
+    </div>
+
+    <div class="flex flex-column gap-2">
+      <label for="categoriaCadastro">Categoria</label>
+      <p-select id="categoriaCadastro" [options]="categorias" [(ngModel)]="formularioLivro.categoriaId" optionLabel="nome" optionValue="id" placeholder="Selecione uma categoria" appendTo="body" styleClass="w-full"></p-select>
+    </div>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <p-button label="Cancelar" icon="pi pi-times" [text]="true" severity="secondary" (onClick)="exibirModalCadastro = false"></p-button>
+    <p-button label="Salvar Livro" icon="pi pi-check" severity="success" (onClick)="salvarNovoLivro()"></p-button>
+  </ng-template>
+</p-dialog>

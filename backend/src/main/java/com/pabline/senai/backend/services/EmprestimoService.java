@@ -25,7 +25,7 @@ public class EmprestimoService {
     }
 
     public EmprestimoResponseDTO emprestar(EmprestimoRequestDTO emprestimoRequestDTO) {
-        Livro livro = livroRepository.findById(emprestimoRequestDTO.getLivro()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não existe"));
+        Livro livro = livroRepository.findById(emprestimoRequestDTO.getLivroId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Livro não existe"));
         if (livro.getStatus() == Status.EMPRESTADO) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Este livro já está emprestado e não pode ser pego no momento");
         }

@@ -11,11 +11,15 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface LivroRepository extends JpaRepository<Livro, Long> {
-    @Query("select l from Livro l where " +
-            "(:termo is null  or lower(l.titulo)like lower (concat('%',:termo,'%'))or lower(l.autor)like lower(concat('%',:termo, '%' )))and " +
-            "(:categoriaId is null or l.categoria.id = :categoriaId) and " +
-            "(:status is null or l.status = :status)")
-    List<Livro> buscarComfiltro(@Param("termo") String termo, @Param("categoriaId") Long categoriaId, @Param("status") Status status);
+    @Query("SELECT l FROM Livro l WHERE " +
+            "(:termo IS NULL OR LOWER(CAST(l.titulo AS text)) LIKE LOWER(CONCAT('%', CAST(:termo AS text), '%')) " +
+            "OR LOWER(CAST(l.autor AS text)) LIKE LOWER(CONCAT('%', CAST(:termo AS text), '%'))) AND " +
+            "(:categoriaId IS NULL OR l.categoria.id = :categoriaId) AND " +
+            "(:status IS NULL OR l.status = :status)")
+    List<Livro> buscarComfiltro(@Param("termo") String termo,
+                                @Param("categoriaId") Long categoriaId,
+                                @Param("status") Status status);
+
     boolean existsByCategoria_Id(Long categoria);
 
     long countByStatus(Status status);

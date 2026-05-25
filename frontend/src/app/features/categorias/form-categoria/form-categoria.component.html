@@ -1,0 +1,9 @@
+<form [formGroup]="form" (ngSubmit)="salvar()">
+  <div class="field mb-3">
+    <input pInputText formControlName="nome" placeholder="Nome da Categoria" class="w-full"/>
+  </div>
+  <div class="field mb-3">
+    <input pInputText formControlName="descricao" placeholder="Descrição" class="w-full"/>
+  </div>
+  <p-button label="Salvar" type="submit" [disabled]="form.invalid"></p-button>
+</form>

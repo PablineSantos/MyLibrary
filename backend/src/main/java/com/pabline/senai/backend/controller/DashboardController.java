@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("MyLibrary/Dashbord")
+@RequestMapping("MyLibrary/Dashboard")
 public class DashboardController {
     private final DashboradService dashboradService;
 

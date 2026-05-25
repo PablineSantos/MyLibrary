@@ -36,7 +36,7 @@ public class LivroController {
     }
 
     @GetMapping("/{id}/emprestimos")
-    public List<EmprestimoResponseDTO> historicoDeEmprestimosPorLivro(Long id) {
+    public List<EmprestimoResponseDTO> historicoDeEmprestimosPorLivro(@PathVariable Long id) {
         return livroService.historicoDeEmprestimosPorLivro(id);
     }
 
