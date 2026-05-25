@@ -23,25 +23,25 @@ public class CategoriaService {
         this.livroRepository = livroRepository;
     }
 
-    public CategoriaDTO criarCategoria (CategoriaDTO categoriaDTO){
-        if (categoriaRepository.existsByNomeIgnoreCase(categoriaDTO.getNome())){
-            throw new ResponseStatusException(HttpStatus.CONFLICT,"Categoria já existe");
+    public CategoriaDTO criarCategoria(CategoriaDTO categoriaDTO) {
+        if (categoriaRepository.existsByNomeIgnoreCase(categoriaDTO.getNome())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Categoria já existe");
         }
-        Categoria novaCategoria=new Categoria();
-        novaCategoria.setNome(categoriaDTO.getNome());
-        novaCategoria.setDescricao(categoriaDTO.getDescricao());
-        categoriaRepository.save(novaCategoria);
-        return new CategoriaDTO (novaCategoria.getId(),novaCategoria.getNome(),novaCategoria.getDescricao());
+        Categoria categoria = new Categoria();
+        categoria.setNome(categoriaDTO.getNome());
+        categoria.setDescricao(categoriaDTO.getDescricao());
+        categoriaRepository.save(categoria);
+        return new CategoriaDTO(categoria);
     }
 
-    public List<CategoriaContagemResponseDTO> listarCategorias (){
+    public List<CategoriaContagemResponseDTO> listarCategorias() {
         return categoriaRepository.buscarCategoriasComContagem();
     }
 
-    public void deletarCategoria(Long id){
-        Categoria categoria= categoriaRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Categoria não existe"));
-        if (livroRepository.existsByCategoria_Id(id)){
-            throw new ResponseStatusException(HttpStatus.CONFLICT,"Não é possível excluir a categoria pois existem livros vinculados a ela ");
+    public void deletarCategoria(Long id) {
+        Categoria categoria = categoriaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Categoria não existe"));
+        if (livroRepository.existsByCategoria_Id(id)) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Não é possível excluir a categoria pois existem livros vinculados a ela ");
         }
         categoriaRepository.delete(categoria);
     }

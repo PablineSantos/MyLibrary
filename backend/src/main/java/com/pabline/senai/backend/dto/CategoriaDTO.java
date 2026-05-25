@@ -1,5 +1,6 @@
 package com.pabline.senai.backend.dto;
 
+import com.pabline.senai.backend.entity.Categoria;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
@@ -16,10 +17,10 @@ public class CategoriaDTO {
 
     public CategoriaDTO() {}
 
-    public CategoriaDTO(Long id, String nome, String descricao) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
+    public CategoriaDTO(Categoria categoria) {
+        this.id = categoria.getId();
+        this.nome = categoria.getNome();
+        this.descricao = categoria.getDescricao();
     }
     public CategoriaDTO(String nome, String descricao) {
         this.nome = nome;
