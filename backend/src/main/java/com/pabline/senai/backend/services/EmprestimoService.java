@@ -56,6 +56,7 @@ public class EmprestimoService {
     }
 
 
+<<<<<<< HEAD
     public List<EmprestimoAtrasadoResponseDTO> listarEmprestimosAtrasados() {
         List<Emprestimo> atrasados = emprestimoRepository.findByDataPrevistaDevolucaoBeforeAndDataDevolucaoIsNull(LocalDate.now());
 
@@ -63,4 +64,7 @@ public class EmprestimoService {
                 .map(emprestimo -> new EmprestimoAtrasadoResponseDTO(emprestimo))
                 .toList();
     }
+=======
+
+>>>>>>> ff4f3f65e7189337fd4e47d84c4520fb3c89b115
 }
