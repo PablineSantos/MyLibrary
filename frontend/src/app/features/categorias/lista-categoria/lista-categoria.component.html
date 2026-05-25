@@ -1,0 +1,28 @@
+<div class="card">
+  <p-button label="Nova Categoria" icon="pi pi-plus" (onClick)="abrirModal()"></p-button>
+
+  <p-table [value]="categorias" styleClass="p-datatable-striped mt-3">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Total Livros</th>
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cat>
+      <tr>
+        <td>{{cat.nome}}</td>
+        <td>{{cat.descricao}}</td>
+        <td>{{cat.totalLivros}}</td>
+        <td>
+          <p-button icon="pi pi-trash" severity="danger" (onClick)="deletar(cat.id!)"></p-button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-confirmDialog></p-confirmDialog>
+<p-dialog header="Cadastrar Categoria" [(visible)]="exibirModal" [modal]="true" [style]="{width: '50vw'}">
+  <app-form-categoria (salvo)="fecharModal()"></app-form-categoria>
+</p-dialog>

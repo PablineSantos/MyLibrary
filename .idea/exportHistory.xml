@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExportHistory">
+    <option name="exports">
+      <list>
+        <ExportEntry>
+          <option name="fileCount" value="4" />
+          <option name="filePaths">
+            <list>
+              <option value="src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="src/main/java/com/pabline/senai/backend/controller/DashboardController.java" />
+              <option value="src/main/java/com/pabline/senai/backend/controller/EmprestimoController.java" />
+              <option value="src/main/java/com/pabline/senai/backend/controller/LivroController.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="5730" />
+          <option name="summary" value="4 files, 5,6 KB, ~1.249 tokens" />
+          <option name="timestamp" value="1779725042658" />
+          <option name="tokens" value="1249" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="3" />
+          <option name="filePaths">
+            <list>
+              <option value="lista-livros.component.css" />
+              <option value="lista-livros.component.html" />
+              <option value="lista-livros.component.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="10239" />
+          <option name="summary" value="3 files, 10,0 KB, ~2.892 tokens" />
+          <option name="timestamp" value="1779717621356" />
+          <option name="tokens" value="2892" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="2" />
+          <option name="filePaths">
+            <list>
+              <option value="dashboard.component.html" />
+              <option value="dashboard.component.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="3630" />
+          <option name="summary" value="2 files, 3,5 KB, ~998 tokens" />
+          <option name="timestamp" value="1779717616315" />
+          <option name="tokens" value="998" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="2" />
+          <option name="filePaths">
+            <list>
+              <option value="lista-categoria.component.html" />
+              <option value="lista-categoria.component.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="2803" />
+          <option name="summary" value="2 files, 2,7 KB, ~698 tokens" />
+          <option name="timestamp" value="1779717610848" />
+          <option name="tokens" value="698" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="2" />
+          <option name="filePaths">
+            <list>
+              <option value="form-categoria.component.html" />
+              <option value="form-categoria.component.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="1549" />
+          <option name="summary" value="2 files, 1,5 KB, ~365 tokens" />
+          <option name="timestamp" value="1779717604725" />
+          <option name="tokens" value="365" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="7" />
+          <option name="filePaths">
+            <list>
+              <option value="categoria.model.ts" />
+              <option value="categoria.service.ts" />
+              <option value="dashboard.service.ts" />
+              <option value="emprestimo.service.ts" />
+              <option value="error.interceptor.ts" />
+              <option value="livro.model.ts" />
+              <option value="livro.service.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="4487" />
+          <option name="summary" value="7 files, 4,4 KB, ~1.073 tokens" />
+          <option name="timestamp" value="1779717527638" />
+          <option name="tokens" value="1073" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="9" />
+          <option name="filePaths">
+            <list>
+              <option value="dashboard.component.html" />
+              <option value="dashboard.component.ts" />
+              <option value="form-categoria.component.html" />
+              <option value="form-categoria.component.ts" />
+              <option value="lista-categoria.component.html" />
+              <option value="lista-categoria.component.ts" />
+              <option value="lista-livros.component.css" />
+              <option value="lista-livros.component.html" />
+              <option value="lista-livros.component.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="18075" />
+          <option name="summary" value="9 files, 17,7 KB, ~4.914 tokens" />
+          <option name="timestamp" value="1779717310388" />
+          <option name="tokens" value="4914" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="21" />
+          <option name="filePaths">
+            <list>
+              <option value="app.config.ts" />
+              <option value="app.html" />
+              <option value="app.routes.ts" />
+              <option value="app.spec.ts" />
+              <option value="app.ts" />
+              <option value="categoria.model.ts" />
+              <option value="categoria.service.ts" />
+              <option value="dashboard.component.html" />
+              <option value="dashboard.component.ts" />
+              <option value="dashboard.service.ts" />
+              <option value="emprestimo.service.ts" />
+              <option value="error.interceptor.ts" />
+              <option value="form-categoria.component.html" />
+              <option value="form-categoria.component.ts" />
+              <option value="lista-categoria.component.html" />
+              <option value="lista-categoria.component.ts" />
+              <option value="lista-livros.component.css" />
+              <option value="lista-livros.component.html" />
+              <option value="lista-livros.component.ts" />
+              <option value="livro.model.ts" />
+              <option value="livro.service.ts" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="24799" />
+          <option name="summary" value="21 files, 24,2 KB, ~6.471 tokens" />
+          <option name="timestamp" value="1779717284804" />
+          <option name="tokens" value="6471" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="24" />
+          <option name="filePaths">
+            <list>
+              <option value="app.config.ts" />
+              <option value="app.html" />
+              <option value="app.routes.ts" />
+              <option value="app.spec.ts" />
+              <option value="app.ts" />
+              <option value="categoria.model.ts" />
+              <option value="categoria.service.ts" />
+              <option value="dashboard.component.html" />
+              <option value="dashboard.component.ts" />
+              <option value="dashboard.service.ts" />
+              <option value="emprestimo.service.ts" />
+              <option value="error.interceptor.ts" />
+              <option value="form-categoria.component.html" />
+              <option value="form-categoria.component.ts" />
+              <option value="index.html" />
+              <option value="lista-categoria.component.html" />
+              <option value="lista-categoria.component.ts" />
+              <option value="lista-livros.component.css" />
+              <option value="lista-livros.component.html" />
+              <option value="lista-livros.component.ts" />
+              <option value="livro.model.ts" />
+              <option value="livro.service.ts" />
+              <option value="main.ts" />
+              <option value="styles.css" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="25495" />
+          <option name="summary" value="24 files, 24,9 KB, ~6.648 tokens" />
+          <option name="timestamp" value="1779717277809" />
+          <option name="tokens" value="6648" />
+        </ExportEntry>
+        <ExportEntry>
+          <option name="fileCount" value="20" />
+          <option name="filePaths">
+            <list>
+              <option value="backend/src/main/java/com/pabline/senai/backend/BackendApplication.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/CategoriaController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/EmprestimoController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/controller/LivroController.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaContagemResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/CategoriaDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/EmprestimoResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroRequestDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/dto/LivroResponseDTO.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Categoria.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Emprestimo.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/entity/Livro.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/enums/Status.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/CategoriaRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/EmprestimoRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/repository/LivroRepository.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/CategoriaService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/EmprestimoService.java" />
+              <option value="backend/src/main/java/com/pabline/senai/backend/services/LivroService.java" />
+            </list>
+          </option>
+          <option name="sizeBytes" value="35281" />
+          <option name="summary" value="20 files, 34,5 KB, ~7.880 tokens" />
+          <option name="timestamp" value="1779595794679" />
+          <option name="tokens" value="7880" />
+        </ExportEntry>
+      </list>
+    </option>
+  </component>
+</project>

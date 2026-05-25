@@ -1,0 +1,71 @@
+<div class="p-4">
+  <h2 class="mb-4">Dashboard Administrativo</h2>
+
+  <div class="grid mb-4">
+    <div class="col-12 md:col-6 lg:col-3">
+      <p-card header="Total de Livros" subheader="Acervo completo">
+        <div class="flex align-items-center justify-content-between">
+          <span class="text-4xl font-bold">{{dados.totalLivros}}</span>
+          <i class="pi pi-book text-blue-500 text-4xl"></i>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+      <p-card header="Disponíveis" subheader="Prontos para empréstimo">
+        <div class="flex align-items-center justify-content-between">
+          <span class="text-4xl font-bold text-green-600">{{dados.livrosDisponiveis}}</span>
+          <i class="pi pi-check-circle text-green-500 text-4xl"></i>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+      <p-card header="Emprestados" subheader="Fora do acervo">
+        <div class="flex align-items-center justify-content-between">
+          <span class="text-4xl font-bold text-orange-600">{{dados.livrosEmprestados}}</span>
+          <i class="pi pi-external-link text-orange-500 text-4xl"></i>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+      <p-card header="Empréstimos Ativos" subheader="Em andamento">
+        <div class="flex align-items-center justify-content-between">
+          <span class="text-4xl font-bold text-purple-600">{{dados.emprestimosAtivos}}</span>
+          <i class="pi pi-clock text-purple-500 text-4xl"></i>
+        </div>
+      </p-card>
+    </div>
+  </div>
+
+  <p-card header="5 Últimos Empréstimos Realizados">
+    <p-table [value]="dados.ultimosEmprestimos" styleClass="p-datatable-sm">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Livro</th>
+          <th>Cliente</th>
+          <th>Data Empréstimo</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-emp>
+        <tr>
+          <td><strong>{{emp.livro.titulo}}</strong></td>
+          <td>{{emp.nomePessoa}}</td>
+          <td>{{emp.dataEmprestimo | date:'dd/MM/yyyy'}}</td>
+          <td>
+                        <span [class]="emp.dataDevolucaoEfetiva ? 'text-green-600' : 'text-orange-600'">
+                            {{ emp.dataDevolucaoEfetiva ? 'Devolvido' : 'Ativo' }}
+                        </span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4" class="text-center p-4">Nenhum empréstimo registrado recentemente.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>

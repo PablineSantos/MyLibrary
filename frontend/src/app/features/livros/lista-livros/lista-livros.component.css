@@ -1,0 +1,8 @@
+.linha-emprestada {
+  opacity: 0.6;
+  background-color: #f9fafb;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}
