@@ -1,11 +1,8 @@
 package com.pabline.senai.backend.services;
 
-import com.pabline.senai.backend.dto.CategoriaDTO;
-import com.pabline.senai.backend.dto.LivroResponseDTO;
+import com.pabline.senai.backend.dto.*;
 import com.pabline.senai.backend.entity.Emprestimo;
 import com.pabline.senai.backend.entity.Livro;
-import com.pabline.senai.backend.dto.EmprestimoRequestDTO;
-import com.pabline.senai.backend.dto.EmprestimoResponseDTO;
 import com.pabline.senai.backend.enums.Status;
 import com.pabline.senai.backend.repository.EmprestimoRepository;
 import com.pabline.senai.backend.repository.LivroRepository;
@@ -14,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class EmprestimoService {
@@ -47,7 +45,7 @@ public class EmprestimoService {
     public EmprestimoResponseDTO devolucao(Long id) {
         Emprestimo emprestimo = emprestimoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Empréstimo não encontrado"));
         if (emprestimo.getDataDevolucao() != null) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT,"Este empréstimo já foi finalizado");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Este empréstimo já foi finalizado");
         }
         emprestimo.setDataDevolucao(LocalDate.now());
         Livro livro = emprestimo.getLivro();
@@ -57,4 +55,11 @@ public class EmprestimoService {
         return new EmprestimoResponseDTO(emprestimo);
     }
 
+    public List<EmprestimoAtrasadoResponseDTO> listarEmprestimosAtrasados() {
+        List<Emprestimo> atrasados = emprestimoRepository.findByDataPrevistaDevolucaoBeforeAndDataDevolucaoIsNull(LocalDate.now());
+
+        return atrasados.stream()
+                .map(emprestimo -> new EmprestimoAtrasadoResponseDTO(emprestimo))
+                .toList();
+    }
 }
