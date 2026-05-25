@@ -1,5 +1,6 @@
 package com.pabline.senai.backend.controller;
 
+import com.pabline.senai.backend.dto.EmprestimoAtrasadoResponseDTO;
 import com.pabline.senai.backend.dto.EmprestimoRequestDTO;
 import com.pabline.senai.backend.dto.EmprestimoResponseDTO;
 import com.pabline.senai.backend.services.EmprestimoService;
@@ -32,4 +33,10 @@ public class EmprestimoController {
 
     }
 
+
+    @GetMapping("/atrasados")
+    @ResponseStatus(HttpStatus.OK)
+    public List<EmprestimoAtrasadoResponseDTO> listarEmprestimosAtrasados() {
+        return emprestimoService.listarEmprestimosAtrasados();
+    }
 }

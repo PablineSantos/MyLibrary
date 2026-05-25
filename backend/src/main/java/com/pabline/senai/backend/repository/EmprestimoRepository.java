@@ -14,4 +14,7 @@ public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 
 
     List<Emprestimo> findAllByOrderByDataEmprestimoDesc();
+
+
+    List<Emprestimo> findByDataPrevistaDevolucaoBeforeAndDataDevolucaoIsNull(LocalDate data);
 }
